@@ -1,0 +1,315 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+:root {
+    /* Light theme (default) */
+    --primary-color: #6c63ff;
+    --secondary-color: #4a45b1;
+    --background-color: #f5f7ff;
+    --text-color: #2d3748;
+    --error-color: #e53e3e;
+    --success-color: #48bb78;
+    --card-bg: white;
+    --input-border: #e2e8f0;
+    --input-bg: white;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --primary-color: #8b85ff;
+    --secondary-color: #6c63ff;
+    --background-color: #1a1a1a;
+    --text-color: #e2e8f0;
+    --error-color: #fc8181;
+    --success-color: #68d391;
+    --card-bg: #2d3748;
+    --input-border: #4a5568;
+    --input-bg: #2d3748;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.msg{
+    color: var(--error-color);
+    font-size: 16px;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background-color: rgba(229, 62, 62, 0.1);
+}
+
+.form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.form form{
+    background-color: var(--card-bg);
+    text-align: center;
+    box-shadow: 0 10px 25px var(--shadow-color);
+    border-radius: 16px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease;
+}
+
+.form form:hover {
+    transform: translateY(-5px);
+}
+
+.form form h2{
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.form form .form-group {
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+.form form input,
+.form form select {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 2px solid var(--input-border);
+    border-radius: 8px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.form form input:focus,
+.form form select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+}
+
+.form form select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236c63ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+.form form button{
+    width: 100%;
+    padding: 14px;
+    margin-top: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.form form button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.form form button:active {
+    transform: translateY(0);
+}
+
+.form form button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.form form button:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+.form form p{
+    font-size: 15px;
+    margin-top: 1.5rem;
+    color: var(--text-color);
+}
+
+.form form a {
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.form form a:hover {
+    color: var(--secondary-color);
+}
+
+.user-page {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 800px;
+    background-color: var(--card-bg);
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.user-page h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.user-page p {
+    font-size: 1.1rem;
+    margin: 1.5rem 0;
+    color: var(--text-color);
+}
+
+.user-page p span {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.user-page .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.user-page .btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.user-page .btn:active {
+    transform: translateY(0);
+}
+
+/* Admin specific styles */
+.admin-page {
+    background-color: var(--card-bg);
+}
+
+.admin-page h2 {
+    color: var(--secondary-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .user-page {
+        margin: 1rem;
+        padding: 2rem;
+    }
+    
+    .user-page h2 {
+        font-size: 1.75rem;
+    }
+    
+    .user-page p {
+        font-size: 1rem;
+    }
+    
+    .user-page .btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+
+    .form form {
+        padding: 1.5rem;
+    }
+    
+    .form form h2 {
+        font-size: 1.75rem;
+    }
+    
+    .form form input,
+    .form form select,
+    .form form button {
+        padding: 10px 14px;
+        font-size: 15px;
+    }
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background: var(--secondary-color);
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
